@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<!-- Header - set the background image for the header in the line below-->
+<header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+	<div class="text-center my-5">
+		<img class="img-fluid rounded-circle mb-4" src="{% static 'img/moon.png' %}" alt="moon" width="150px"
+			height="150px" />
+		<h1 class="text-white fs-3 fw-bolder">Create</h1>
+		<p class="text-white-50 mb-0">글을 작성해보세요</p>
+	</div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="createform">
+	<br><br>
+	<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table>
+			{{ form.as_table }}
+		</table>
+		<input type="submit" value="글 생성하기">
+	</form>
+</div>
+{% endblock %}

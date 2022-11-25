@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<!-- Header - set the background image for the header in the line below-->
+<header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+	<div class="text-center my-5">
+		<img class="img-fluid rounded-circle mb-4" src="{% static 'img/moon.png' %}" alt="moon" width="150px"
+			height="150px" />
+		<h1 class="text-white fs-3 fw-bolder">Main</h1>
+		<p class="text-white-50 mb-0">글 목록을 볼 수 있습니다</p>
+	</div>
+</header>
+<!-- Content section-->
+<section class="py-5">
+	<div class="container my-5">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<h2>Post List</h2>
+				<br>
+				{% for post in posts %}
+				<a href="{% url 'detail' post.id %}">{{ post.title }}</a><br>
+				{{ post.date }}<br><br>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block content %}
+<!-- Image element - set the background image for the header in the line below-->
+<div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+	<!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+	<div style="height: 20rem"></div>
+</div>
+<!-- Content section-->
+<section class="py-5">
+	<div class="container my-5">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<h2>벌써... 멋사 10기 마지막 수업이라니...</h2>
+				<p class="lead">멋사 첫 시작이 엊그제 같</p>
+				<p class="mb-0">진 않지만ㅋㅅㅋ 마지막 수업을 맡게 되어 영광(?)이고... 여러분 모두 1년 동안 너무 고생하셨고... 포기하지 않고 끝까지 와주셔서 너무 감사하고... </p>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
